@@ -1,5 +1,5 @@
 import { createSelector, createEntityAdapter } from "@reduxjs/toolkit";
-import { apiSlice } from "../../app/api/apiSlice";
+import { apiSlice } from "./apiSlice";
 
 const notesAdapter = createEntityAdapter({
   sortComparer: (a, z) => (a.completed === z.completed) ? 0 : a.completed ? 1 : -1

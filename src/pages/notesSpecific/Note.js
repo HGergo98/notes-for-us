@@ -4,7 +4,7 @@ import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 import { useSelector } from 'react-redux';
-import { selectNoteById } from './notesApiSlice';
+import { selectNoteById } from '../../app/api/notesApiSlice';
 
 
 const Note = ({ noteId }) => {

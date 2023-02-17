@@ -4,10 +4,10 @@ import DashboardLayout from "./components/DashboardLayout/DashboardLayout";
 import Layout from "./components/Layout/Layout";
 import Public from "./components/Public/Public";
 
-import Login from "./pages/Login/Login";
-import Welcome from "./pages/Welcome/Welcome";
-import Noteslist from "./pages/Noteslist/Noteslist";
-import Userslist from "./pages/Userslist/Userslist";
+import Login from "./pages/authSpecific/Login";
+import Welcome from "./pages/authSpecific/Welcome";
+import Noteslist from "./pages/notesSpecific/Noteslist";
+import Userslist from "./pages/usersSpecific/Userslist";
 
 const App = () => {
   return (
