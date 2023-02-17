@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from "react-router-dom";
 
-function App() {
+import DashboardLayout from "./components/DashboardLayout/DashboardLayout";
+import Layout from "./components/Layout/Layout";
+import Public from "./components/Public/Public";
+
+import Login from "./pages/Login/Login";
+import Welcome from "./pages/Welcome/Welcome";
+import Noteslist from "./pages/Noteslist/Noteslist";
+import Userslist from "./pages/Userslist/Userslist";
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Public />} />
+        <Route path="login" element={<Login />} />
+        <Route path="dashboard" element={<DashboardLayout />}>
+          <Route index element={<Welcome />} />
+          <Route path="notes">
+            <Route index element={<Noteslist />} />
+          </Route>
+          <Route path="users">
+            <Route index element={<Userslist />} />
+          </Route>
+        </Route>
+      </Route>
+    </Routes>
   );
 }
 
