@@ -48,7 +48,7 @@ const Login = () => {
       } else if (error.status === 400) {
         setErrMsg("Missing Username or Password");
       } else {
-        setErrMsg(error.data?.message);
+        setErrMsg(error?.data?.message);
       }
       errorRef.current.focus();
     }

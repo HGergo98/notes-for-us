@@ -1,8 +1,11 @@
 import React from "react";
 import Note from "./Note";
 import { useGetNotesQuery } from "../../app/api/notesApiSlice";
+import useAuth from "../../hooks/useAuth";
 
 const Noteslist = () => {
+  const { username, isManager, isAdmin } = useAuth();
+
   const {
     data: notes,
     isLoading,
@@ -22,10 +25,19 @@ const Noteslist = () => {
   if (isError) content = <p className="errmsg">{error?.data?.message}</p>;
 
   if (isSuccess) {
-    const { ids } = notes;
+    const { ids, entities } = notes;
+
+    let filteredIds;
+    if (isManager || isAdmin) {
+      filteredIds = [...ids];
+    } else {
+      filteredIds = ids.filter(
+        (noteId) => entities[noteId].username === username
+      );
+    }
 
     const tableContent = ids.length
-      ? ids.map((noteId) => <Note key={noteId} noteId={noteId} />)
+      ? filteredIds.map((noteId) => <Note key={noteId} noteId={noteId} />)
       : null;
 
     content = (

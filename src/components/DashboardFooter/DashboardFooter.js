@@ -1,20 +1,23 @@
-import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
-import { useNavigate, useLocation } from 'react-router-dom';
+import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faHouse } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate, useLocation } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const DashboardFooter = () => {
+  const { username, status } = useAuth();
+
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
   const onGoHomeClicked = () => navigate("/dashboard");
 
   let goHomeButton;
-  
+
   if (pathname !== "/dashboard") {
     goHomeButton = (
       <button
-        className='dash-footer__button icon-button'
+        className="dash-footer__button icon-button"
         title="Home"
         onClick={onGoHomeClicked}
       >
@@ -26,10 +29,10 @@ const DashboardFooter = () => {
   return (
     <footer className="dash-footer">
       {goHomeButton}
-      <p>Current User:</p>
-      <p>Status:</p>
+      <p>Current User: {username}</p>
+      <p>Status: {status}</p>
     </footer>
-  )
-}
+  );
+};
 
-export default DashboardFooter
+export default DashboardFooter;
