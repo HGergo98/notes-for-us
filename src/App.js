@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import { ROLES } from "./config/roles";
+import useTitle from "./hooks/useTitle";
 
 import DashboardLayout from "./components/DashboardLayout/DashboardLayout";
 import Layout from "./components/Layout/Layout";
@@ -21,6 +22,7 @@ import NewUserForm from "./pages/usersSpecific/NewUserForm";
 import EditUser from "./pages/usersSpecific/EditUser";
 
 const App = () => {
+  useTitle("Notes for Us");
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

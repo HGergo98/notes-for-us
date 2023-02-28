@@ -6,8 +6,11 @@ import { PulseLoader } from "react-spinners";
 import { setCredentials } from "../../app/api/authSlice";
 import { useLoginMutation } from "../../app/api/authApiSlice";
 import usePersist from "../../hooks/usePersist";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
+  useTitle("Notes for Us | Login");
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const userRef = useRef();

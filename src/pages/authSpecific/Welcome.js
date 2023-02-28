@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
+import useTitle from "../../hooks/useTitle";
 
 const Welcome = () => {
   const { username, isManager, isAdmin } = useAuth();
+  useTitle(`Notes for Us | Welcome - ${username}`);
 
   const date = new Date();
   const today = new Intl.DateTimeFormat("en-US", {

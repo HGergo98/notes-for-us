@@ -5,9 +5,11 @@ import { PulseLoader } from "react-spinners";
 import { useGetNotesQuery } from "../../app/api/notesApiSlice";
 import { useGetUsersQuery } from "../../app/api/usersApiSlice";
 import useAuth from "../../hooks/useAuth";
+import useTitle from "../../hooks/useTitle";
 import EditNoteForm from "./EditNoteForm";
 
 const EditNote = () => {
+  useTitle("Notes for Us | Edit note");
   const { id } = useParams();
 
   const { username, isManager, isAdmin } = useAuth();

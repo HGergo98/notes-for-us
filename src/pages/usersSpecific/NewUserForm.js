@@ -6,11 +6,13 @@ import { faSave } from "@fortawesome/free-solid-svg-icons";
 
 import { useAddNewUserMutation } from "../../app/api/usersApiSlice";
 import { ROLES } from "../../config/roles";
+import useTitle from "../../hooks/useTitle";
 
 const USER_REGEX = /^[A-z]{3,20}$/;
 const PW_REGEX = /^[A-z0-9!@#$%]{4,12}$/;
 
 const NewUserForm = () => {
+  useTitle("Notes for Us | Add new user");
   const navigate = useNavigate();
 
   const [addNewUser, { isLoading, isSuccess, isError, error }] =

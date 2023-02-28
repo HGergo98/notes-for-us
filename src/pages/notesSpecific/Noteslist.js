@@ -4,8 +4,10 @@ import { PulseLoader } from "react-spinners";
 import Note from "./Note";
 import { useGetNotesQuery } from "../../app/api/notesApiSlice";
 import useAuth from "../../hooks/useAuth";
+import useTitle from "../../hooks/useTitle";
 
 const Noteslist = () => {
+  useTitle("Notes for Us | Notes list");
   const { username, isManager, isAdmin } = useAuth();
 
   const {
