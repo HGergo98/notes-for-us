@@ -1,4 +1,6 @@
 import React from "react";
+import { PulseLoader } from "react-spinners";
+
 import Note from "./Note";
 import { useGetNotesQuery } from "../../app/api/notesApiSlice";
 import useAuth from "../../hooks/useAuth";
@@ -20,7 +22,7 @@ const Noteslist = () => {
 
   let content;
 
-  if (isLoading) content = <p>Loading...</p>;
+  if (isLoading) content = <PulseLoader color={"#FFF"} />;
 
   if (isError) content = <p className="errmsg">{error?.data?.message}</p>;
 

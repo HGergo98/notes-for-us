@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { PulseLoader } from "react-spinners";
 
 import { setCredentials } from "../../app/api/authSlice";
 import { useLoginMutation } from "../../app/api/authApiSlice";
@@ -55,7 +56,7 @@ const Login = () => {
   };
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <PulseLoader color={"#FFF"} />;
   }
 
   return (

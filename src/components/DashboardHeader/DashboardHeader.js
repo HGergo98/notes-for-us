@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate, Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { PulseLoader } from "react-spinners";
 import {
   faFileCirclePlus,
   faFilePen,
@@ -37,7 +38,7 @@ const DashboardHeader = () => {
   const onUsersClicked = () => navigate("/dashboard/users");
 
   if (isLoading) {
-    return <p>Loading...</p>;
+    return <PulseLoader color={"#FFF"} />;
   }
 
   if (isError) {
@@ -109,7 +110,7 @@ const DashboardHeader = () => {
 
   let buttons;
   if (isLoading) {
-    buttons = <p>Logging Out...</p>;
+    buttons = <PulseLoader color={"#FFF"} />;
   } else {
     buttons = (
       <>
