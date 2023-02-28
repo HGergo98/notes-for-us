@@ -1,7 +1,8 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { setCredentials } from "./authSlice";
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:3500",
+  // for dev: baseUrl: "https://localhost:3500",
+  baseUrl: "https://notesforus-api.onrender.com",
   credentials: "include",
   prepareHeaders: (headers, { getState }) => {
     const token = getState().auth.token;
